@@ -1,0 +1,18 @@
+@use "../../../styles/theme" as t;
+
+.storeItem {
+  min-width: 130px;
+  text-align: center;
+  // TODO: change to border
+  outline: 1px solid t.$text;
+  border-radius: t.$radius;
+  padding: t.$spacing-2;
+}
+
+.character {
+  font-size: 50px;
+  height: 75px;
+  span {
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,19 @@
+@use "../../styles/theme" as t;
+
+.loggedInUsers {
+  max-width: 300px;
+  margin: 0 auto;
+  ul {
+    padding: 0;
+    text-align: left;
+    li {
+      display: flex;
+      align-items: center;
+      column-gap: t.$spacing-2;
+      list-style: none;
+      p {
+        font-size: 20px
+      }
+    }
+  }
+}

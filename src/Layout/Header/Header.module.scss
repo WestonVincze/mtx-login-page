@@ -1,0 +1,11 @@
+@use "../../styles/theme" as t;
+
+.header {
+  background-color: t.$secondary;
+  height: 40px;
+  padding: t.$spacing-2;
+  margin-bottom: t.$spacing-2;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,21 @@
+{
+    "include": [
+        "./src/**/*",
+        "env.d.ts"
+    ],
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "strict": false,
+        "target": "ES6",
+        "skipLibCheck": false,
+        "allowJs": false,
+        "noFallthroughCasesInSwitch": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "dom",
+            "es2015"
+        ],
+        "jsx": "react-jsx"
+    }
+}

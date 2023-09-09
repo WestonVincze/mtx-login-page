@@ -1,0 +1,42 @@
+@use "./theme" as t;
+
+html, body {
+  background-color: t.$background;
+  color: t.$button-text;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: t.$headline;
+}
+
+p, label, li {
+  color: t.$text;
+  margin: 0;
+}
+
+button, input {
+  color: t.$text;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* LoggedInUsers */
+.loggedInUsers {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* UserData */
+.userData {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+}
+/* StoreItem */
+.itemName {
+  font-size: 50px;
+}

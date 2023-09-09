@@ -1,0 +1,1 @@
+export { useUnlockedCharacters } from "./unlockedCharacters";

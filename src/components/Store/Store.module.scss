@@ -1,0 +1,8 @@
+@use "../../styles/theme" as t;
+
+.store {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: t.$spacing-2;
+  row-gap: t.$spacing-2;
+}

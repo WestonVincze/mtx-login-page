@@ -1,0 +1,21 @@
+@use "../../styles/theme" as t;
+
+.inputField {
+  display: flex;
+  justify-content: center;
+  column-gap: t.$spacing-3;
+  margin-bottom: t.$spacing-2;
+  label {
+    padding: t.$spacing-1 t.$spacing-2;
+    text-transform: uppercase;
+  }
+  input {
+    padding: t.$spacing-1 t.$spacing-2;
+    border: none;
+    border-radius: t.$radius;
+    &:focus-visible, &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
