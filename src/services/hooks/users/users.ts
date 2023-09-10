@@ -20,7 +20,7 @@ export const useUsers = () => {
     (state: RootState) => state.login.loggedInUsers
   );
 
-  const handleSignup = async (user: User): Promise<boolean> => {
+  const handleSignup = async(user: User): Promise<boolean> => {
     setLoading(true);
     setError(null);
     await new Promise((resolve) => setTimeout(resolve, MOCK_RESPONSE_TIME));
@@ -37,7 +37,7 @@ export const useUsers = () => {
     }
   };
 
-  const handleLogin = async (user: User): Promise<boolean> => {
+  const handleLogin = async(user: User): Promise<boolean> => {
     setLoading(true);
     setError(null);
     await new Promise((resolve) => setTimeout(resolve, MOCK_RESPONSE_TIME));
@@ -57,7 +57,7 @@ export const useUsers = () => {
     }
   };
 
-  const handleLogout = async (username: string) => {
+  const handleLogout = async(username: string) => {
     dispatch(logoutSuccess(username));
   };
 

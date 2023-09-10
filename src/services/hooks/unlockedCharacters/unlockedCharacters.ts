@@ -21,7 +21,7 @@ export const useUnlockedCharacters = () => {
   );
   const dispatch = useDispatch();
 
-  const handleAddUnlockedCharacter = async (character: string) => {
+  const handleAddUnlockedCharacter = async(character: string) => {
     try {
       await addUnlockedCharacter(character, companyName);
       dispatch(addUnlockedCharacterToStore(character));

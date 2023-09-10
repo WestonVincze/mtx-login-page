@@ -24,7 +24,7 @@ export const useCompany = () => {
   );
 
   // if company is already registered then we should load its data to redux
-  const handleRegisterNewCompany = async (name: string) => {
+  const handleRegisterNewCompany = async(name: string) => {
     try {
       // why does this always get hit
       if ((await getCompany(name)) !== null) {
@@ -52,9 +52,9 @@ export const useCompany = () => {
     dispatch(setCompanyName(""));
   };
 
-  const handleChangeCompany = () => {};
+  // const handleChangeCompany = () => {};
 
-  const handleUpdateCompanyName = async (newCompanyName: string) => {
+  const handleUpdateCompanyName = async(newCompanyName: string) => {
     try {
       await updateCompanyName(companyName, newCompanyName);
       dispatch(setCompanyName(newCompanyName));

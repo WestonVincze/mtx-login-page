@@ -2,7 +2,13 @@ import ReactModal from "react-modal";
 import { Button } from "../Button";
 import styles from "./Modal.module.scss";
 
-export const Modal: React.FC<ModalProps> = ({ isOpen, content, onClose }) => {
+interface ModalProps {
+  isOpen: boolean;
+  content: React.ReactNode;
+  onClose: () => void;
+}
+
+export const Modal = ({ isOpen, content, onClose }: ModalProps) => {
   return (
     <ReactModal
       isOpen={isOpen}
@@ -16,9 +22,3 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, content, onClose }) => {
     </ReactModal>
   );
 };
-
-interface ModalProps {
-  isOpen: boolean;
-  content: React.ReactNode;
-  onClose: () => void;
-}

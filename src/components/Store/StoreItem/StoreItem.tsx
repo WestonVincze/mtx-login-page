@@ -10,15 +10,15 @@ interface PriceDisplayProps {
 }
 
 // PurchaseButton
-const PriceDisplay: React.FC<PriceDisplayProps> = ({ currencyType, price }) => {
+const PriceDisplay = ({ currencyType, price }: PriceDisplayProps) => {
   let priceText: string;
   switch (currencyType) {
-    case currency.Dollars:
-      priceText = `$${price}`;
-      break;
-    case currency.LBucks:
-      priceText = `${price} LBucks`;
-      break;
+  case currency.Dollars:
+    priceText = `$${price}`;
+    break;
+  case currency.LBucks:
+    priceText = `${price} LBucks`;
+    break;
   }
   return (
     <div className={""}>
@@ -39,12 +39,12 @@ export const StoreItem = ({
 }: StoreItemProps) => {
   let currencyType: currency;
   switch (type) {
-    case itemType.LBucks:
-      currencyType = currency.Dollars;
-      break;
-    default:
-      currencyType = currency.LBucks;
-      break;
+  case itemType.LBucks:
+    currencyType = currency.Dollars;
+    break;
+  default:
+    currencyType = currency.LBucks;
+    break;
   }
   //const currencyType = itemType.LBucks ? currency.Dollars : currency.LBucks;
   return (

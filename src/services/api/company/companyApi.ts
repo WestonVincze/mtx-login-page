@@ -11,15 +11,15 @@ const newCompanyInitData = {
   keys: 0
 };
 
-const getCompanyData = async (): Promise<CompanyData> => {
+const getCompanyData = async(): Promise<CompanyData> => {
   return await JSON.parse(localStorage.getItem(COMPANY_DATA_KEY) || "{}");
 };
 
-const setCompanyData = async (companyData: CompanyData): Promise<void> => {
+const setCompanyData = async(companyData: CompanyData): Promise<void> => {
   localStorage.setItem(COMPANY_DATA_KEY, JSON.stringify(companyData));
 };
 
-export const getCompany = async (
+export const getCompany = async(
   companyName: string
 ): Promise<Company | null> => {
   const companyData = await getCompanyData();
@@ -27,14 +27,14 @@ export const getCompany = async (
   return companyData[companyName] || null;
 };
 
-const deleteCompany = async (companyName: string): Promise<void> => {
+const deleteCompany = async(companyName: string): Promise<void> => {
   const companyData = await getCompanyData();
   delete companyData[companyName];
 
   setCompanyData(companyData);
 };
 
-export const setCompany = async (
+export const setCompany = async(
   companyName: string,
   company: Company
 ): Promise<void> => {
@@ -51,13 +51,13 @@ export const setCompany = async (
   await setCompanyData(companyData);
 };
 
-export const registerNewCompany = async (
+export const registerNewCompany = async(
   companyName: string
 ): Promise<void> => {
   await setCompany(companyName, { name: companyName, ...newCompanyInitData });
 };
 
-export const updateCompanyName = async (
+export const updateCompanyName = async(
   oldCompanyName: string,
   newCompanyName: string
 ): Promise<void> => {

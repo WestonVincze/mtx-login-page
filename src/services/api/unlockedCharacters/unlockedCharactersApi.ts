@@ -1,7 +1,7 @@
 import { getCompany, setCompany } from "../company";
 import { Company } from "../../types";
 
-export const addUnlockedCharacter = async (
+export const addUnlockedCharacter = async(
   character: string,
   companyName: string
 ): Promise<void> => {
@@ -16,7 +16,7 @@ export const addUnlockedCharacter = async (
   await setCompany(companyName, company);
 };
 
-export const getUnlockedCharacters = async (
+export const getUnlockedCharacters = async(
   companyName: string
 ): Promise<string[]> => {
   const company: Company | null = await getCompany(companyName);

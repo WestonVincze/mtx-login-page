@@ -10,8 +10,8 @@ export const Settings: React.FC<SettingsProps> = ({ closeModal }) => {
   const {
     resetCompanyLocalState,
     unRegisterCompany,
-    updateCompanyName,
-    error
+    // updateCompanyName,
+    // error
   } = useCompany();
   //const [data, setData] = useState()
   // rename company

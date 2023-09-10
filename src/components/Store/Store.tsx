@@ -11,22 +11,20 @@ export const Store = () => {
   // get inventory
   // get player unlocks
   return (
-    <>
-      <div className={styles.store} data-testid="store-modal">
-        {inventory.map((c, i) => (
-          <StoreItem
-            key={i}
-            name={c}
-            type={itemType.Character}
-            price={100}
-            discount={0}
-            quantity={1}
-            isUnlocked={isCharacterUnlocked(c)}
-            onPurchase={() => addCharacter(c)}
-          />
-        ))}
-      </div>
-    </>
+    <div className={styles.store} data-testid="store-modal">
+      {inventory.map((c, i) => (
+        <StoreItem
+          key={i}
+          name={c}
+          type={itemType.Character}
+          price={100}
+          discount={0}
+          quantity={1}
+          isUnlocked={isCharacterUnlocked(c)}
+          onPurchase={() => addCharacter(c)}
+        />
+      ))}
+    </div>
   );
 };
 

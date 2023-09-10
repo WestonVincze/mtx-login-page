@@ -21,7 +21,7 @@ export const LoggedInUsers = () => {
 
           <ul>
             {loggedInUsers.map((u) => (
-              <li>
+              <li key="u">
                 <p>{u}</p>
                 <Button onClick={() => handleLogout(u)}>Log Out</Button>
               </li>

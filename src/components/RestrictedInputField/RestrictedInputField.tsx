@@ -4,10 +4,10 @@ import { useUnlockedCharacters } from "../../services/hooks/unlockedCharacters";
 
 const ACCEPTED_CHARS_REGEX = /^[a-z0-9!@#$%^&*()-_=+,.<>/?|`~]+$/i;
 
-export const RestrictedInputField: React.FC<RestrictedInputFieldProps> = ({
+export const RestrictedInputField = ({
   onChange,
   ...props
-}) => {
+}: InputFieldProps) => {
   const { isCharacterUnlocked } = useUnlockedCharacters();
 
   /* TODO: solve for all methods of data entry */
@@ -25,5 +25,3 @@ export const RestrictedInputField: React.FC<RestrictedInputFieldProps> = ({
 
   return <InputField onChange={handleChange} {...props} />;
 };
-
-interface RestrictedInputFieldProps extends InputFieldProps {}
