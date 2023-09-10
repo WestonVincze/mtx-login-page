@@ -8,7 +8,7 @@ export interface ModalState {
 
 const initialState: ModalState = {
   isOpen: false,
-  content: null
+  content: null,
 };
 
 export const ModalSlice = createSlice({
@@ -23,8 +23,8 @@ export const ModalSlice = createSlice({
     },
     setContent(state: ModalState, action: PayloadAction<ReactNode>) {
       state.content = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { open, close, setContent } = ModalSlice.actions;

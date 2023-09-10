@@ -12,13 +12,17 @@ describe("Button", () => {
   });
 
   it("renders with text", () => {
-    const { getByText } = render(<Button data-testid="button">Button Text</Button>);
+    const { getByText } = render(
+      <Button data-testid="button">Button Text</Button>,
+    );
 
     expect(getByText("Button Text")).toBeInTheDocument();
   });
 
   it("calls the onClick function", () => {
-    const { getByTestId } = render(<Button data-testid="button" onClick={handleClickMock} />);
+    const { getByTestId } = render(
+      <Button data-testid="button" onClick={handleClickMock} />,
+    );
 
     fireEvent.click(getByTestId("button"));
 

@@ -24,7 +24,7 @@ export const alphaCharacters = [
   "w",
   "x",
   "y",
-  "z"
+  "z",
 ];
 
 export const numericCharacters = [
@@ -37,5 +37,5 @@ export const numericCharacters = [
   "7",
   "8",
   "9",
-  "0"
+  "0",
 ];

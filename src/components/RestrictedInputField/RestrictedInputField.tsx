@@ -18,7 +18,7 @@ export const RestrictedInputField = ({
       onChange(value);
     } else {
       toast.error(`You don't own "${lastChar}".`, {
-        position: toast.POSITION.BOTTOM_RIGHT
+        position: toast.POSITION.BOTTOM_RIGHT,
       });
     }
   }

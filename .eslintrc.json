@@ -13,10 +13,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react"
-  ],
+  "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "object-curly-newline": "off",
     "space-before-function-paren": ["error", "never"],
@@ -28,22 +25,10 @@
         "allowArrowFunctions": true
       }
     ],
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off"
   }

@@ -1,21 +1,30 @@
 @use "./theme" as t;
 
-html, body {
+html,
+body {
   background-color: t.$background;
   color: t.$button-text;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: t.$headline;
 }
 
-p, label, li {
+p,
+label,
+li {
   color: t.$text;
   margin: 0;
 }
 
-button, input {
+button,
+input {
   color: t.$text;
 }
 

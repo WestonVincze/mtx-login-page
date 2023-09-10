@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import { getCompany, setCompany } from "../company";
 import { Company, User, Users } from "../../types";
 
-export const addUserToCompany = async(user: User, companyName: string) => {
+export const addUserToCompany = async (user: User, companyName: string) => {
   const company: Company | null = await getCompany(companyName);
   if (!company)
     throw new Error("Cannot add user to company that does not exist.");
@@ -10,16 +10,16 @@ export const addUserToCompany = async(user: User, companyName: string) => {
   setCompany(companyName, company);
 };
 
-export const getCompanyUsers = async(companyName: string): Promise<Users> => {
+export const getCompanyUsers = async (companyName: string): Promise<Users> => {
   const company: Company | null = await getCompany(companyName);
   if (!company)
     throw new Error("Cannot fetch users from company that does not exist.");
   return company.users;
 };
 
-export const signupUser = async(
+export const signupUser = async (
   { username, password }: User,
-  companyName: string
+  companyName: string,
 ): Promise<void> => {
   const users: Users = await getCompanyUsers(companyName);
 
@@ -34,9 +34,9 @@ export const signupUser = async(
   await addUserToCompany(users[username], companyName);
 };
 
-export const loginUser = async(
+export const loginUser = async (
   { username, password }: User,
-  companyName: string
+  companyName: string,
 ): Promise<boolean> => {
   const users: Users = await getCompanyUsers(companyName);
 

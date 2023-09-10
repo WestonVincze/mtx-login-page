@@ -1,9 +1,9 @@
 import { getCompany, setCompany } from "../company";
 import { Company } from "../../types";
 
-export const addUnlockedCharacter = async(
+export const addUnlockedCharacter = async (
   character: string,
-  companyName: string
+  companyName: string,
 ): Promise<void> => {
   if (character.length > 1)
     throw new Error("Character must not exceed length of 1.");
@@ -16,13 +16,13 @@ export const addUnlockedCharacter = async(
   await setCompany(companyName, company);
 };
 
-export const getUnlockedCharacters = async(
-  companyName: string
+export const getUnlockedCharacters = async (
+  companyName: string,
 ): Promise<string[]> => {
   const company: Company | null = await getCompany(companyName);
   if (!company)
     throw new Error(
-      "Cannot fetch characters from company that does not exist."
+      "Cannot fetch characters from company that does not exist.",
     );
 
   return company.unlockedCharacters;

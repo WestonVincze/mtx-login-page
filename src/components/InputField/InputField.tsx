@@ -12,10 +12,10 @@ export interface InputFieldProps {
 export const InputField = ({
   id,
   label,
-  fieldType="text",
-  value="",
+  fieldType = "text",
+  value = "",
   onChange,
-  disabled = false
+  disabled = false,
 }: InputFieldProps) => {
   return (
     <div className={styles.inputField} data-testid="inputField">

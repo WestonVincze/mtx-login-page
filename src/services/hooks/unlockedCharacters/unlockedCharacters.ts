@@ -3,25 +3,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import {
   addUnlockedCharacter,
-  getUnlockedCharacters
+  getUnlockedCharacters,
 } from "../../api/unlockedCharacters";
 // TODO: update names to be less confusing
 import {
   setUnlockedCharacters,
-  addUnlockedCharacter as addUnlockedCharacterToStore
+  addUnlockedCharacter as addUnlockedCharacterToStore,
 } from "../../slices/unlockedCharactersSlice";
 
 export const useUnlockedCharacters = () => {
   const [error, setError] = useState<string>();
   const companyName = useSelector(
-    (state: RootState) => state.company.companyName
+    (state: RootState) => state.company.companyName,
   );
   const unlockedCharacters = useSelector(
-    (state: RootState) => state.unlockedCharacters.unlockedCharacters
+    (state: RootState) => state.unlockedCharacters.unlockedCharacters,
   );
   const dispatch = useDispatch();
 
-  const handleAddUnlockedCharacter = async(character: string) => {
+  const handleAddUnlockedCharacter = async (character: string) => {
     try {
       await addUnlockedCharacter(character, companyName);
       dispatch(addUnlockedCharacterToStore(character));
@@ -60,6 +60,6 @@ export const useUnlockedCharacters = () => {
   return {
     error,
     addCharacter: handleAddUnlockedCharacter,
-    isCharacterUnlocked: handleIsCharacterUnlocked
+    isCharacterUnlocked: handleIsCharacterUnlocked,
   };
 };

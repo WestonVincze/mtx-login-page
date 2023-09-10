@@ -5,11 +5,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => null | void;
 }
 
-export const Button = ({
-  onClick,
-  children,
-  ...props
-}: ButtonProps) => {
+export const Button = ({ onClick, children, ...props }: ButtonProps) => {
   return (
     <button
       className={styles.button}

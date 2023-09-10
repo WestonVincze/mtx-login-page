@@ -20,8 +20,12 @@ describe("Header", () => {
     expect(store).toBeInTheDocument();
   });
 
-  it("can open the store modal", async() => {
-    const { getByTestId } = render(<Provider store={store}><Header /></Provider>);
+  it("can open the store modal", async () => {
+    const { getByTestId } = render(
+      <Provider store={store}>
+        <Header />
+      </Provider>,
+    );
     const storeBtn = getByTestId("store-btn");
 
     fireEvent.click(storeBtn);
@@ -31,8 +35,12 @@ describe("Header", () => {
     });
   });
 
-  it("can open the settings modal", async() => {
-    const { getByTestId } = render(<Provider store={store}><Header /></Provider>);
+  it("can open the settings modal", async () => {
+    const { getByTestId } = render(
+      <Provider store={store}>
+        <Header />
+      </Provider>,
+    );
     const settingsBtn = getByTestId("settings-btn");
 
     fireEvent.click(settingsBtn);

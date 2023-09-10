@@ -3,10 +3,10 @@ export enum itemType {
   LBucks,
   Key,
   LootBox,
-  Kkin
+  Kkin,
 }
 
 export enum currency {
   Dollars,
-  LBucks
+  LBucks,
 }

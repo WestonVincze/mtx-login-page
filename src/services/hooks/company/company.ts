@@ -4,12 +4,12 @@ import { RootState } from "../../../store";
 import {
   registerNewCompany,
   updateCompanyName,
-  getCompany
+  getCompany,
 } from "../../api/company";
 import {
   setCompanyName,
   registerCompany,
-  unRegisterCompany
+  unRegisterCompany,
 } from "../../slices/companySlice";
 import { getUnlockedCharacters } from "../../api/unlockedCharacters";
 import { setUnlockedCharacters } from "../../slices/unlockedCharactersSlice";
@@ -20,11 +20,11 @@ export const useCompany = () => {
   const dispatch = useDispatch();
 
   const companyName = useSelector(
-    (state: RootState) => state.company.companyName
+    (state: RootState) => state.company.companyName,
   );
 
   // if company is already registered then we should load its data to redux
-  const handleRegisterNewCompany = async(name: string) => {
+  const handleRegisterNewCompany = async (name: string) => {
     try {
       // why does this always get hit
       if ((await getCompany(name)) !== null) {
@@ -54,7 +54,7 @@ export const useCompany = () => {
 
   // const handleChangeCompany = () => {};
 
-  const handleUpdateCompanyName = async(newCompanyName: string) => {
+  const handleUpdateCompanyName = async (newCompanyName: string) => {
     try {
       await updateCompanyName(companyName, newCompanyName);
       dispatch(setCompanyName(newCompanyName));
@@ -69,7 +69,7 @@ export const useCompany = () => {
     resetCompanyLocalState: handleResetCompanyLocalState,
     registerCompany: handleRegisterNewCompany,
     unRegisterCompany: handleUnRegisterCompany,
-    updateCompanyName: handleUpdateCompanyName
+    updateCompanyName: handleUpdateCompanyName,
   };
 };
 

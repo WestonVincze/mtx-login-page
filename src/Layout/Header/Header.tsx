@@ -20,9 +20,13 @@ export const Header = () => {
     <>
       <Modal isOpen={isOpen} content={content} onClose={closeModal} />
       <div className={styles.header}>
-        <Button onClick={openSettings} data-testid="settings-btn">SETTINGS</Button>
+        <Button onClick={openSettings} data-testid="settings-btn">
+          SETTINGS
+        </Button>
         <Button>TEST</Button>
-        <Button onClick={openStore} data-testid="store-btn">STORE</Button>
+        <Button onClick={openStore} data-testid="store-btn">
+          STORE
+        </Button>
       </div>
     </>
   );

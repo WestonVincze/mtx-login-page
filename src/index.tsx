@@ -12,5 +12,5 @@ render(
     <ToastContainer autoClose={2000} />
     <App />
   </Provider>,
-  rootElement
+  rootElement,
 );

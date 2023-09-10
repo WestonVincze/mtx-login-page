@@ -21,7 +21,7 @@ export const LoginForm = () => {
     setLoading(true);
     if (await login({ username, password })) {
       toast.success(`${username} logged in.`, {
-        position: toast.POSITION.BOTTOM_RIGHT
+        position: toast.POSITION.BOTTOM_RIGHT,
       });
       setUsername("");
       setPassword("");

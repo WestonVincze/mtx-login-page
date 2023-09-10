@@ -7,7 +7,7 @@ export interface CompanyState {
 
 const initialState: CompanyState = {
   isRegistered: false,
-  companyName: ""
+  companyName: "",
 };
 
 const CompanySlice = createSlice({
@@ -22,14 +22,11 @@ const CompanySlice = createSlice({
     },
     unRegisterCompany(state: CompanyState) {
       state.isRegistered = false;
-    }
-  }
+    },
+  },
 });
 
-export const {
-  setCompanyName,
-  registerCompany,
-  unRegisterCompany
-} = CompanySlice.actions;
+export const { setCompanyName, registerCompany, unRegisterCompany } =
+  CompanySlice.actions;
 
 export default CompanySlice.reducer;

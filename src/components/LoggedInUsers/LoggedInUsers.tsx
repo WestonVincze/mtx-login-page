@@ -9,7 +9,7 @@ export const LoggedInUsers = () => {
   const handleLogout = (username: string) => {
     logout(username);
     toast.success(`${username} logged out.`, {
-      position: toast.POSITION.BOTTOM_RIGHT
+      position: toast.POSITION.BOTTOM_RIGHT,
     });
   };
 
@@ -21,7 +21,7 @@ export const LoggedInUsers = () => {
 
           <ul>
             {loggedInUsers.map((u) => (
-              <li key="u">
+              <li key={u}>
                 <p>{u}</p>
                 <Button onClick={() => handleLogout(u)}>Log Out</Button>
               </li>

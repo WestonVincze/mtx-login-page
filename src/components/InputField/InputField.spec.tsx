@@ -4,8 +4,14 @@ import { render } from "@testing-library/react";
 
 const handleChangeMock = jest.fn();
 
-const renderInputField = () => {
-  const utils = render(<InputField id="test" label="label" onChange={handleChangeMock} />);
+interface renderInputFieldOptions {
+  defaultValue?: string;
+}
+
+const renderInputField = ({ defaultValue }: renderInputFieldOptions = {}) => {
+  const utils = render(
+    <InputField id="test" label="label" onChange={handleChangeMock} />,
+  );
 
   return { ...utils };
 };

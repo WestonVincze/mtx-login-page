@@ -13,14 +13,14 @@ export const useUsers = () => {
   const dispatch = useDispatch();
 
   const companyName = useSelector(
-    (state: RootState) => state.company.companyName
+    (state: RootState) => state.company.companyName,
   );
 
   const loggedInUsers = useSelector(
-    (state: RootState) => state.login.loggedInUsers
+    (state: RootState) => state.login.loggedInUsers,
   );
 
-  const handleSignup = async(user: User): Promise<boolean> => {
+  const handleSignup = async (user: User): Promise<boolean> => {
     setLoading(true);
     setError(null);
     await new Promise((resolve) => setTimeout(resolve, MOCK_RESPONSE_TIME));
@@ -37,7 +37,7 @@ export const useUsers = () => {
     }
   };
 
-  const handleLogin = async(user: User): Promise<boolean> => {
+  const handleLogin = async (user: User): Promise<boolean> => {
     setLoading(true);
     setError(null);
     await new Promise((resolve) => setTimeout(resolve, MOCK_RESPONSE_TIME));
@@ -57,7 +57,7 @@ export const useUsers = () => {
     }
   };
 
-  const handleLogout = async(username: string) => {
+  const handleLogout = async (username: string) => {
     dispatch(logoutSuccess(username));
   };
 
@@ -67,6 +67,6 @@ export const useUsers = () => {
     loggedInUsers,
     signup: handleSignup,
     login: handleLogin,
-    logout: handleLogout
+    logout: handleLogout,
   };
 };
