@@ -3,23 +3,22 @@ import styles from "./InputField.module.scss";
 export interface InputFieldProps {
   id: string;
   label: string;
-  fieldType: string;
-  value: string;
+  fieldType?: string;
+  value?: string;
   onChange(value: string): void;
   disabled?: boolean;
 }
 
-// TODO: add ID so that label can work properly
-export const InputField: React.FC<InputFieldProps> = ({
+export const InputField = ({
   id,
   label,
-  fieldType,
-  value,
+  fieldType="text",
+  value="",
   onChange,
   disabled = false
-}) => {
+}: InputFieldProps) => {
   return (
-    <div className={styles.inputField}>
+    <div className={styles.inputField} data-testid="inputField">
       <label htmlFor={id}>{label}</label>
       <input
         id={id}

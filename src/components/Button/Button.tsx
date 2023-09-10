@@ -1,22 +1,23 @@
 import { ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.scss";
 
-export const Button: React.FC<ButtonProps> = ({
-  onClick = () => null,
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  onClick?: () => null | void;
+}
+
+export const Button = ({
+  onClick,
   children,
   ...props
-}) => {
+}: ButtonProps) => {
   return (
     <button
       className={styles.button}
-      onClick={() => onClick()}
+      onClick={() => onClick?.()}
       disabled={props.disabled}
+      data-testid={props["data-testid"]}
     >
       {children}
     </button>
   );
 };
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  onClick?: () => null | void;
-}

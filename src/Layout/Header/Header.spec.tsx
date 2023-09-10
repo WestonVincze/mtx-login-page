@@ -1,33 +1,44 @@
 import "@testing-library/jest-dom/extend-expect";
-import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { Header } from "./Header";
-import ReactModal from "react-modal";
-
-test("React Testing Library works!", () => {
-  const { getByText } = render(<div id="root">STORE</div>);
-  expect(getByText(/STORE/i)).toBeInTheDocument();
-});
-/*
-import Header from "./Header";
-import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
-
-ReactModal.setAppElement("#test");
+import { store } from "../../store";
+import { Provider } from "react-redux";
+import Modal from "react-modal";
 
 describe("Header", () => {
-  it("renders", () => {
-    const { getByText } = render(
-      <div id="test">
-        <Header />
-      </div>
-    );
+  beforeEach(() => {
+    Modal.setAppElement(document.createElement("div"));
   });
-  /*
-  it("renders again", () => {
-    const { getByText } = render(<Header />);
 
-    expect(getByText("STORE")).toBeInTheDocument();
+  it("renders", () => {
+    const { getByTestId } = render(<Header />);
+
+    const settings = getByTestId("settings-btn");
+    const store = getByTestId("store-btn");
+
+    expect(settings).toBeInTheDocument();
+    expect(store).toBeInTheDocument();
+  });
+
+  it("can open the store modal", async() => {
+    const { getByTestId } = render(<Provider store={store}><Header /></Provider>);
+    const storeBtn = getByTestId("store-btn");
+
+    fireEvent.click(storeBtn);
+
+    await waitFor(() => {
+      expect(getByTestId("store-modal")).toBeInTheDocument();
+    });
+  });
+
+  it("can open the settings modal", async() => {
+    const { getByTestId } = render(<Provider store={store}><Header /></Provider>);
+    const settingsBtn = getByTestId("settings-btn");
+
+    fireEvent.click(settingsBtn);
+
+    await waitFor(() => {
+      expect(getByTestId("settings-modal")).toBeInTheDocument();
+    });
   });
 });
-  */

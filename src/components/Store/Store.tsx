@@ -12,7 +12,7 @@ export const Store = () => {
   // get player unlocks
   return (
     <>
-      <div className={styles.store}>
+      <div className={styles.store} data-testid="store-modal">
         {inventory.map((c, i) => (
           <StoreItem
             key={i}

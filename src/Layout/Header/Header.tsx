@@ -4,9 +4,8 @@ import { useModal } from "../../services/hooks/modal";
 import { Modal } from "../../components/Modal";
 import { Settings } from "../../components/Settings";
 import { Store } from "../../components/Store";
-import React from "react";
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const { isOpen, content, openModal, closeModal } = useModal();
 
   const openStore = () => {
@@ -21,9 +20,9 @@ export const Header: React.FC = () => {
     <>
       <Modal isOpen={isOpen} content={content} onClose={closeModal} />
       <div className={styles.header}>
-        <Button onClick={openSettings}>SETTINGS</Button>
+        <Button onClick={openSettings} data-testid="settings-btn">SETTINGS</Button>
         <Button>TEST</Button>
-        <Button onClick={openStore}>STORE</Button>
+        <Button onClick={openStore} data-testid="store-btn">STORE</Button>
       </div>
     </>
   );
