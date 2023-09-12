@@ -15,8 +15,8 @@ export const Modal = ({ isOpen, content, onClose }: ModalProps) => {
       onRequestClose={onClose}
       className={styles.modal}
     >
-      <div className={styles.modalHeader}>
-        <Button onClick={() => onClose()}>&times;</Button>
+      <div className={styles.modalHeader} data-testid="modal">
+        <Button onClick={() => onClose()} data-testid="close-btn">&times;</Button>
       </div>
       {content}
     </ReactModal>

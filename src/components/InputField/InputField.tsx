@@ -23,6 +23,7 @@ export const InputField = ({
       <input
         id={id}
         type={fieldType}
+        aria-label={label}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}

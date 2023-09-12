@@ -1,25 +1,51 @@
 import "@testing-library/jest-dom/extend-expect";
 import { InputField } from "./InputField";
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 const handleChangeMock = jest.fn();
 
 interface renderInputFieldOptions {
   defaultValue?: string;
+  disabled?: boolean;
 }
 
-const renderInputField = ({ defaultValue }: renderInputFieldOptions = {}) => {
+const renderInputField = ({ defaultValue, disabled = false }: renderInputFieldOptions = {}) => {
   const utils = render(
-    <InputField id="test" label="label" onChange={handleChangeMock} />,
+    <InputField id="test-input" label="test input" value={defaultValue} onChange={handleChangeMock} disabled={disabled} />,
   );
 
-  return { ...utils };
+  const inputContainer = utils.getByTestId("inputField");
+  const input = screen.getByLabelText("test input");
+  return { input, inputContainer, ...utils };
 };
 
 describe("InputField", () => {
-  it("renders", () => {
-    const { getByTestId } = renderInputField();
+  it("renders with a label", () => {
+    const { inputContainer, getByText } = renderInputField();
 
-    expect(getByTestId("inputField")).toBeInTheDocument();
+    expect(inputContainer).toBeInTheDocument();
+    expect(getByText("test input")).toBeInTheDocument();
+  });
+
+  it("starts with the correct initial value", () => {
+    const { getByDisplayValue } = renderInputField({defaultValue: "dog face"});
+
+    expect(getByDisplayValue("dog face")).toBeInTheDocument();
+  });
+
+  it("updates the value correctly on keypress", () => {
+    const { input } = renderInputField();
+
+    fireEvent.change(input, { target: { value: "hi dog"}});
+
+    expect(handleChangeMock).toHaveBeenCalledWith("hi dog");
+  });
+
+  it("doesn't work if it's disabled", () => {
+    const { input } = renderInputField({ disabled: true });
+
+    fireEvent.change(input, { target: { value: "hi dog"}});
+
+    expect(input).toHaveAttribute("disabled");
   });
 });

@@ -3,11 +3,11 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import { Header } from "./Header";
 import { store } from "../../store";
 import { Provider } from "react-redux";
-import Modal from "react-modal";
+import ReactModal from "react-modal";
 
 describe("Header", () => {
   beforeEach(() => {
-    Modal.setAppElement(document.createElement("div"));
+    ReactModal.setAppElement(document.createElement("div"));
   });
 
   it("renders", () => {
@@ -20,7 +20,7 @@ describe("Header", () => {
     expect(store).toBeInTheDocument();
   });
 
-  it("can open the store modal", async () => {
+  it("can open the store modal", async() => {
     const { getByTestId } = render(
       <Provider store={store}>
         <Header />
@@ -35,7 +35,7 @@ describe("Header", () => {
     });
   });
 
-  it("can open the settings modal", async () => {
+  it("can open the settings modal", async() => {
     const { getByTestId } = render(
       <Provider store={store}>
         <Header />

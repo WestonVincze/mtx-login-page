@@ -14,10 +14,10 @@ export const LoggedInUsers = () => {
   };
 
   return (
-    <div className={styles.loggedInUsers}>
+    <div className={styles.loggedInUsers} data-testid="loggedInUsers">
       {loggedInUsers.length > 0 && (
         <>
-          <h2>LOGGED IN USERS</h2>
+          <h2 data-testid="title">LOGGED IN USERS</h2>
 
           <ul>
             {loggedInUsers.map((u) => (
