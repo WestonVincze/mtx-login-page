@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 export const CompanyForm = () => {
   const { companyName, isRegistered } = useSelector(
-    (state: RootState) => state.company
+    (state: RootState) => state.company,
   );
   const [company, setCompany] = useState(companyName);
   const { registerCompany, updateCompanyName, error } = useCompany();

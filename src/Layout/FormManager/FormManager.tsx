@@ -10,7 +10,7 @@ export const FormManager: React.FC = () => {
   const [showLogin, setShowLogin] = useState(true);
 
   const { companyName, isRegistered } = useSelector(
-    (state: RootState) => state.company
+    (state: RootState) => state.company,
   );
 
   return (

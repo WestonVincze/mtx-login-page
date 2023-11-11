@@ -8,19 +8,19 @@ import companyReducer from "./services/slices/companySlice";
 
 const persistConfig = {
   key: "root",
-  storage
+  storage,
 };
 
 const rootReducer = combineReducers({
   login: loginReducer,
   unlockedCharacters: unlockedCharactersReducer,
-  company: companyReducer
+  company: companyReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-  reducer: persistedReducer
+  reducer: persistedReducer,
 });
 const persistor = persistStore(store);
 

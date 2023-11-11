@@ -25,7 +25,7 @@ export const SignupForm = () => {
     event.preventDefault();
     if (!passwordMatch(password1, password2)) {
       toast.error("Password fields don't match.", {
-        position: toast.POSITION.BOTTOM_RIGHT
+        position: toast.POSITION.BOTTOM_RIGHT,
       });
       return;
     }
@@ -65,4 +65,4 @@ export const SignupForm = () => {
       </form>
     </div>
   );
-}
+};

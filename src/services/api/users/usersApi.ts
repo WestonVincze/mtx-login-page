@@ -19,7 +19,7 @@ export const getCompanyUsers = async (companyName: string): Promise<Users> => {
 
 export const signupUser = async (
   { username, password }: User,
-  companyName: string
+  companyName: string,
 ): Promise<void> => {
   const users: Users = await getCompanyUsers(companyName);
 
@@ -36,7 +36,7 @@ export const signupUser = async (
 
 export const loginUser = async (
   { username, password }: User,
-  companyName: string
+  companyName: string,
 ): Promise<boolean> => {
   const users: Users = await getCompanyUsers(companyName);
 

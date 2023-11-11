@@ -8,7 +8,7 @@ const newCompanyInitData = {
   unlockedCharacters: freeCharacters,
   lBucks: 0,
   lootBoxes: 0,
-  keys: 0
+  keys: 0,
 };
 
 const getCompanyData = async (): Promise<CompanyData> => {
@@ -20,7 +20,7 @@ const setCompanyData = async (companyData: CompanyData): Promise<void> => {
 };
 
 export const getCompany = async (
-  companyName: string
+  companyName: string,
 ): Promise<Company | null> => {
   const companyData = await getCompanyData();
 
@@ -36,7 +36,7 @@ const deleteCompany = async (companyName: string): Promise<void> => {
 
 export const setCompany = async (
   companyName: string,
-  company: Company
+  company: Company,
 ): Promise<void> => {
   if (!companyName || companyName === "")
     throw new Error("No company name provided.");
@@ -52,14 +52,14 @@ export const setCompany = async (
 };
 
 export const registerNewCompany = async (
-  companyName: string
+  companyName: string,
 ): Promise<void> => {
   await setCompany(companyName, { name: companyName, ...newCompanyInitData });
 };
 
 export const updateCompanyName = async (
   oldCompanyName: string,
-  newCompanyName: string
+  newCompanyName: string,
 ): Promise<void> => {
   const oldCompanyData = await getCompany(oldCompanyName);
   if (!oldCompanyData)

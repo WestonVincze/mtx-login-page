@@ -4,12 +4,12 @@ import { RootState } from "../../../store";
 import {
   registerNewCompany,
   updateCompanyName,
-  getCompany
+  getCompany,
 } from "../../api/company";
 import {
   setCompanyName,
   registerCompany,
-  unRegisterCompany
+  unRegisterCompany,
 } from "../../slices/companySlice";
 import { getUnlockedCharacters } from "../../api/unlockedCharacters";
 import { setUnlockedCharacters } from "../../slices/unlockedCharactersSlice";
@@ -20,7 +20,7 @@ export const useCompany = () => {
   const dispatch = useDispatch();
 
   const companyName = useSelector(
-    (state: RootState) => state.company.companyName
+    (state: RootState) => state.company.companyName,
   );
 
   // if company is already registered then we should load its data to redux
@@ -52,7 +52,7 @@ export const useCompany = () => {
     dispatch(setCompanyName(""));
   };
 
-  const handleChangeCompany = () => {};
+  // const handleChangeCompany = () => {};
 
   const handleUpdateCompanyName = async (newCompanyName: string) => {
     try {
@@ -69,7 +69,7 @@ export const useCompany = () => {
     resetCompanyLocalState: handleResetCompanyLocalState,
     registerCompany: handleRegisterNewCompany,
     unRegisterCompany: handleUnRegisterCompany,
-    updateCompanyName: handleUpdateCompanyName
+    updateCompanyName: handleUpdateCompanyName,
   };
 };
 

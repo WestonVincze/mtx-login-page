@@ -10,7 +10,7 @@ interface PriceDisplayProps {
 }
 
 // PurchaseButton
-const PriceDisplay: React.FC<PriceDisplayProps> = ({ currencyType, price }) => {
+const PriceDisplay = ({ currencyType, price }: PriceDisplayProps) => {
   let priceText: string;
   switch (currencyType) {
     case currency.Dollars:
@@ -35,7 +35,7 @@ export const StoreItem = ({
   discount,
   quantity,
   isUnlocked,
-  onPurchase
+  onPurchase,
 }: StoreItemProps) => {
   let currencyType: currency;
   switch (type) {

@@ -5,7 +5,7 @@ interface loginState {
 }
 
 const initialState: loginState = {
-  loggedInUsers: []
+  loggedInUsers: [],
 };
 
 const loginSlice = createSlice({
@@ -17,10 +17,10 @@ const loginSlice = createSlice({
     },
     logoutSuccess: (state: loginState, action: PayloadAction<string>) => {
       state.loggedInUsers = state.loggedInUsers.filter(
-        (l) => l !== action.payload
+        (l) => l !== action.payload,
       );
-    }
-  }
+    },
+  },
 });
 
 export const { loginSuccess, logoutSuccess } = loginSlice.actions;
