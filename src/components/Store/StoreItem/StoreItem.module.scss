@@ -4,7 +4,8 @@
   min-width: 130px;
   text-align: center;
   // TODO: change to border
-  outline: 1px solid t.$text;
+  outline: 1px solid t.$dark;
+  background: t.$background;
   padding: t.$spacing-2;
 }
 
@@ -14,4 +15,8 @@
   span {
     text-transform: uppercase;
   }
+}
+
+.unlocked {
+  color: t.$primary;
 }

@@ -21,7 +21,7 @@ export const Header = () => {
       <Modal isOpen={isOpen} content={content} onClose={closeModal} />
       <div className={styles.header}>
         <section>
-          <Button onClick={openSettings} data-testid="settings-btn" className="left">
+          <Button onClick={openSettings} data-testid="settings-btn" direction={"left"}>
             SETTINGS
           </Button>
           <h2>MTX</h2>

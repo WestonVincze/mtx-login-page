@@ -10,9 +10,12 @@
     text-transform: uppercase;
   }
   input {
+    color: t.$input-text;
+    background-color: t.$input;
     padding: t.$spacing-1 t.$spacing-2;
     border: none;
-    border-radius: t.$radius;
+    clip-path: t.$right-clip;
+    padding-right: t.$clip-padding;
     &:focus-visible,
     &:focus {
       border: none;
