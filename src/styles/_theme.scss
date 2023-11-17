@@ -1,14 +1,18 @@
 /* Colors */
-$secondary: #eaddcf;
-$background: #f9f4ef;
-// $text: #020826;
-$text: #716040;
-$border: #b8c1ec;
-$button: #8c7851;
-$button-text: #fffffe;
-$highlight: #8c7851;
-$headline: #020826;
+$primary: #FF8B38;
+$secondary: #FFF;
+$dark: #292828;
+$black: #0F0D0D;
+$background: linear-gradient($black 0%, $dark 100%);
+$text: $secondary;
 $disabled: #f25042;
+$disabled: $primary;
+
+$input: $primary;
+$inputText: $secondary;
+
+$button: $primary;
+$button-text: $secondary;
 
 /* Spacing */
 $spacing-1: 5px;

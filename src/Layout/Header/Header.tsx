@@ -20,13 +20,21 @@ export const Header = () => {
     <>
       <Modal isOpen={isOpen} content={content} onClose={closeModal} />
       <div className={styles.header}>
-        <Button onClick={openSettings} data-testid="settings-btn">
-          SETTINGS
-        </Button>
-        <Button>TEST</Button>
-        <Button onClick={openStore} data-testid="store-btn">
-          STORE
-        </Button>
+        <section>
+          <Button onClick={openSettings} data-testid="settings-btn" className="left">
+            SETTINGS
+          </Button>
+          <h2>MTX</h2>
+        </section>
+
+        <img src="/tie.svg" alt="orange tie icon (MTX INC Logo)" />
+
+        <section>
+          <h2>INC</h2>
+          <Button onClick={openStore} data-testid="store-btn" className="right">
+            STORE
+          </Button>
+        </section>
       </div>
     </>
   );

@@ -1,8 +1,13 @@
 @use "./theme" as t;
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
-  background-color: t.$background;
+  background: t.$background;
+  min-height: 100svh;
   color: t.$button-text;
   margin: 0;
 }
@@ -13,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: t.$headline;
+  color: t.$text;
 }
 
 p,
@@ -31,12 +36,6 @@ input {
 .App {
   font-family: sans-serif;
   text-align: center;
-}
-
-/* LoggedInUsers */
-.loggedInUsers {
-  max-width: 400px;
-  margin: 0 auto;
 }
 
 /* UserData */
