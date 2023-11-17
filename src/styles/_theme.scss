@@ -1,14 +1,18 @@
 /* Colors */
-$secondary: #eaddcf;
-$background: #f9f4ef;
-// $text: #020826;
-$text: #716040;
-$border: #b8c1ec;
-$button: #8c7851;
-$button-text: #fffffe;
-$highlight: #8c7851;
-$headline: #020826;
+$primary: #FF8B38;
+$primary-alpha-55: #FF8B3855;
+$secondary: #FFF;
+$dark: #292828;
+$black: #0F0D0D;
+$background: linear-gradient($black 0%, $dark 100%);
+$text: $secondary;
 $disabled: #f25042;
+
+$input: $primary;
+$input-text: $black;
+
+$button: $primary;
+$button-text: $black;
 
 /* Spacing */
 $spacing-1: 5px;
@@ -17,3 +21,7 @@ $spacing-3: 15px;
 
 /* Borders */
 $radius: 15px;
+
+$left-clip: polygon(100% 100%, 100% 0%, 0% 0%, 20px 100%);
+$right-clip: polygon(calc(100% - 20px) 100%, 100% 0%, 0% 0%, 0% 100%);
+$clip-padding: 2rem;

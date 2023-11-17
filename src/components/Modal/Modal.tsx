@@ -14,6 +14,11 @@ export const Modal = ({ isOpen, content, onClose }: ModalProps) => {
       isOpen={isOpen}
       onRequestClose={onClose}
       className={styles.modal}
+      style={{
+        overlay: {
+          backgroundColor: "rgba(255, 255, 255, 0.35)"
+        }
+      }}
     >
       <div className={styles.modalHeader} data-testid="modal">
         <Button onClick={() => onClose()} data-testid="close-btn">&times;</Button>

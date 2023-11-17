@@ -1,7 +1,6 @@
 @use "../../styles/theme" as t;
 
 .button {
-  border-radius: t.$radius;
   color: t.$button-text;
   background-color: t.$button;
   border: none;
@@ -10,11 +9,29 @@
   line-height: 15px;
   padding: t.$spacing-1 t.$spacing-3;
   margin: t.$spacing-1;
+  &.left {
+    clip-path: t.$left-clip; 
+    padding-left: t.$clip-padding;
+  }
+  &.right {
+    clip-path: t.$right-clip;
+    padding-right: t.$clip-padding;
+  }
   &:hover {
     cursor: pointer;
   }
-  &:disabled {
-    background-color: grey;
-    cursor: default;
-  }
 }
+
+/*
+// elements on the right extend the top-right vertex away from the center
+
+clip-path: polygon(80% 100%, 100% 0%, 0% 0%, 0% 100%);
+
+*/
+
+
+/*
+// elements on the left extend the top-left vertex away from the center
+
+clip-path: polygon(100% 100%, 100% 0%, 0% 0%, 20% 100%);
+*/

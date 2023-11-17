@@ -50,21 +50,21 @@ export const StoreItem = ({
   return (
     <div className={styles.storeItem}>
       {type === itemType.Character ? (
-        <div className={styles.character}>
-          <p>
-            <span>{name}</span>
-            {name}
-          </p>
-        </div>
+        <p className={`${styles.character} ${isUnlocked && styles.unlocked}`}>
+          <span>{name}</span>
+          {name}
+        </p>
       ) : (
-        <div></div>
+        <div />
       )}
       <div className={styles.item}></div>
-      <PriceDisplay currencyType={currencyType} price={price} />
       {isUnlocked ? (
-        <Button disabled={true}>Unlocked</Button>
+        <p>Unlocked!</p>
       ) : (
-        <Button onClick={() => onPurchase()}>Buy Now</Button>
+        <>
+          <PriceDisplay currencyType={currencyType} price={price} />
+          <Button onClick={() => onPurchase()}>Buy Now</Button>
+        </>
       )}
     </div>
   );
