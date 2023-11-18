@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
-import { RestrictedInputField } from "../../../../components/RestrictedInputField";
 import { useUsers } from "../../../../services/hooks/users";
-import { Button } from "../../../../components/Button";
 import { toast } from "react-toastify";
+import { BaseForm } from "../BaseForm";
 
 function passwordMatch(password1: string, password2: string): boolean {
   return password1 === password2;
 }
 
-export const SignupForm = () => {
+interface SignupFormProps {
+  button?: () => void;
+}
+
+export const SignupForm = ({ button }: SignupFormProps) => {
   const [username, setUsername] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
@@ -33,36 +36,35 @@ export const SignupForm = () => {
   }
   return (
     <div className="LoginPage">
-      <h2>SIGN UP</h2>
-      <form onSubmit={handleSubmit}>
-        <RestrictedInputField
-          id="signup-username"
-          label="username"
-          fieldType="text"
-          value={username}
-          onChange={setUsername}
-          disabled={loading}
-        />
-        <RestrictedInputField
-          id="signup-password-1"
-          label="password"
-          fieldType="password"
-          value={password1}
-          onChange={setPassword1}
-          disabled={loading}
-        />
-        <RestrictedInputField
-          id="signup-password-2"
-          label="re-enter password"
-          fieldType="password"
-          value={password2}
-          onChange={setPassword2}
-          disabled={loading}
-        />
-        <Button type="submit" disabled={loading}>
-          SIGN UP
-        </Button>
-      </form>
+      <h2>NEW USER</h2>
+      <BaseForm
+        fields={[{
+          id: "signup-username",
+          label:"username",
+          fieldType:"text",
+          value: username,
+          onChange: setUsername,
+        },
+        {
+          id: "signup-password-1",
+          label: "password",
+          fieldType: "password",
+          value: password1,
+          onChange: setPassword1,
+        },
+        {
+          id: "signup-password-2",
+          label: "confirm",
+          fieldType: "password",
+          value: password2,
+          onChange: setPassword2,
+        },
+      ]}
+        onSubmit={handleSubmit}
+        onBack={() => button()}
+        onBackText="Already Signed Up?"
+        loading={loading}
+       />
     </div>
   );
 };

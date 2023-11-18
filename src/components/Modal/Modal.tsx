@@ -16,8 +16,9 @@ export const Modal = ({ isOpen, content, onClose }: ModalProps) => {
       className={styles.modal}
       style={{
         overlay: {
-          backgroundColor: "rgba(255, 255, 255, 0.35)"
-        }
+          backgroundColor: "rgba(255, 255, 255, 0.35)",
+          zIndex: 5,
+        },
       }}
     >
       <div className={styles.modalHeader} data-testid="modal">
