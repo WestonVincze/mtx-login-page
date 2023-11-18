@@ -5,14 +5,18 @@
   justify-content: center;
   column-gap: t.$spacing-3;
   margin-bottom: t.$spacing-2;
-  label {
+  * {
     padding: t.$spacing-1 t.$spacing-2;
+    z-index: 1;
+  }
+  label {
     text-transform: uppercase;
+    width: 115px;
+    text-align: right;
   }
   input {
     color: t.$input-text;
     background-color: t.$input;
-    padding: t.$spacing-1 t.$spacing-2;
     border: none;
     clip-path: t.$right-clip;
     padding-right: t.$clip-padding;

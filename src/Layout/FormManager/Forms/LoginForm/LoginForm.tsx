@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { RestrictedInputField } from "../../../../components/RestrictedInputField";
 import { toast } from "react-toastify";
 import { useUsers } from "../../../../services/hooks/users";
-import { Button } from "../../../../components/Button";
+import { BaseForm } from "../BaseForm";
 
-export const LoginForm = () => {
+interface LoginFormProps {
+  button?: () => void;
+}
+
+export const LoginForm = ({ button } : LoginFormProps) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -30,29 +33,31 @@ export const LoginForm = () => {
   }
 
   return (
-    <div className="LoginPage">
+    <>
       <h2>LOG IN</h2>
-      <form onSubmit={handleSubmit}>
-        <RestrictedInputField
-          id="login-username"
-          label="username"
-          fieldType="text"
-          value={username}
-          onChange={setUsername}
-          disabled={loading}
-        />
-        <RestrictedInputField
-          id="login-password"
-          label="password"
-          fieldType="password"
-          value={password}
-          onChange={setPassword}
-          disabled={loading}
-        />
-        <Button type="submit" disabled={loading}>
-          Submit
-        </Button>
-      </form>
-    </div>
+      <BaseForm fields={[
+        {
+          id:"login-username",
+          label:"username",
+          fieldType:"text",
+          value: username,
+          onChange: setUsername,
+          disabled: loading,
+        },
+        {
+          id:"login-password",
+          label:"password",
+          fieldType:"password",
+          value:password,
+          onChange:setPassword,
+          disabled:loading,
+        },
+      ]}
+        onSubmit={handleSubmit}
+        loading={loading}
+        onBack={button}
+        onBackText="Need an account?"
+      />
+    </>
   );
 };

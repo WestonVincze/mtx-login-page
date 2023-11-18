@@ -1,0 +1,24 @@
+@use "/src/styles/theme" as t;
+
+h2 {
+  margin: 0;
+  margin-bottom: t.$spacing-1;
+}
+.form {
+  width: 400px;
+  padding: t.$spacing-3;
+  margin: 0 auto;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: calc(100% - 10px);
+    outline: 1px solid t.$dark;
+    background: t.$background;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+}

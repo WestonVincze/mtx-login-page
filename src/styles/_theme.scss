@@ -8,20 +8,18 @@ $background: linear-gradient($black 0%, $dark 100%);
 $text: $secondary;
 $disabled: #f25042;
 
-$input: $primary;
-$input-text: $black;
-
-$button: $primary;
-$button-text: $black;
-
 /* Spacing */
 $spacing-1: 5px;
 $spacing-2: 10px;
 $spacing-3: 15px;
 
-/* Borders */
-$radius: 15px;
-
+/* Clipping */
 $left-clip: polygon(100% 100%, 100% 0%, 0% 0%, 20px 100%);
 $right-clip: polygon(calc(100% - 20px) 100%, 100% 0%, 0% 0%, 0% 100%);
 $clip-padding: 2rem;
+
+$input: $primary;
+$input-text: $black;
+
+$button: $primary;
+$button-text: $black;

@@ -8,7 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   direction?: ClipDirection;
 }
 
-export const Button = ({ onClick, children, direction = "right", ...props }: ButtonProps) => {
+export const Button = ({ onClick, direction = "right", ...props }: ButtonProps) => {
   return (
     <button
       className={`${styles.button} ${styles[direction]}`}
@@ -16,7 +16,7 @@ export const Button = ({ onClick, children, direction = "right", ...props }: But
       disabled={props.disabled}
       data-testid={props["data-testid"]}
     >
-      {children}
+      {props.children}
     </button>
   );
 };

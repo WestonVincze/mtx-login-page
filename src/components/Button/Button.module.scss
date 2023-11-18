@@ -1,14 +1,14 @@
 @use "../../styles/theme" as t;
 
 .button {
+  text-transform: uppercase;
   color: t.$button-text;
   background-color: t.$button;
   border: none;
   outline: none;
-  font-size: 15px;
-  line-height: 15px;
   padding: t.$spacing-1 t.$spacing-3;
   margin: t.$spacing-1;
+  margin-top: 0;
   &.left {
     clip-path: t.$left-clip; 
     padding-left: t.$clip-padding;
