@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { InputField } from "../../../../components/InputField";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { useCompany } from "../../../../services/hooks/company/company";
-import { Button } from "../../../../components/Button";
 import { toast } from "react-toastify";
+import { BaseForm } from "../BaseForm";
 
 export const CompanyForm = () => {
   const { companyName, isRegistered } = useSelector(
@@ -19,30 +18,32 @@ export const CompanyForm = () => {
     }
   }, [error]);
 
-  const onRegister = () => {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
     if (isRegistered) {
       updateCompanyName(company);
     } else {
       registerCompany(company);
     }
-  };
-
-  // register company
-  // rename company
-  //
+  }
 
   return (
     <>
-      <InputField
-        id="company-name"
-        label="Enter company name:"
-        value={company}
-        fieldType="text"
-        onChange={setCompany}
+      <h2>{isRegistered ? "Rename" : "Register"} Your Company</h2>
+      <BaseForm
+        restricted={false}
+        fields={[
+          {
+            id: "company-name",
+            label: "Company",
+            value: company,
+            fieldType: "text",
+            onChange: setCompany,
+          }
+        ]}
+        onSubmit={handleSubmit}
       />
-      <Button onClick={onRegister}>
-        {isRegistered ? "Rename" : "Register"}
-      </Button>
     </>
   );
 };

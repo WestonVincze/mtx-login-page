@@ -30,9 +30,9 @@ export const FormManager: React.FC = () => {
       case FormState.Company: 
         return <CompanyForm />;
       case FormState.Signup:
-        return <SignupForm button={() => setFormState(FormState.Login)} />;
+        return <SignupForm onBack={() => setFormState(FormState.Login)} />;
       case FormState.Login:
-        return <LoginForm button={() => setFormState(FormState.Signup)} />;
+        return <LoginForm onBack={() => setFormState(FormState.Signup)} />;
       default:
         return null;
     }

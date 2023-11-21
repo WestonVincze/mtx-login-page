@@ -8,10 +8,10 @@ function passwordMatch(password1: string, password2: string): boolean {
 }
 
 interface SignupFormProps {
-  button?: () => void;
+  onBack?: () => void;
 }
 
-export const SignupForm = ({ button }: SignupFormProps) => {
+export const SignupForm = ({ onBack }: SignupFormProps) => {
   const [username, setUsername] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
@@ -24,8 +24,8 @@ export const SignupForm = ({ button }: SignupFormProps) => {
     }
   }, [error]);
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     if (!passwordMatch(password1, password2)) {
       toast.error("Password fields don't match.", {
         position: toast.POSITION.BOTTOM_RIGHT,
@@ -38,30 +38,32 @@ export const SignupForm = ({ button }: SignupFormProps) => {
     <div className="LoginPage">
       <h2>NEW USER</h2>
       <BaseForm
-        fields={[{
-          id: "signup-username",
-          label:"username",
-          fieldType:"text",
-          value: username,
-          onChange: setUsername,
-        },
-        {
-          id: "signup-password-1",
-          label: "password",
-          fieldType: "password",
-          value: password1,
-          onChange: setPassword1,
-        },
-        {
-          id: "signup-password-2",
-          label: "confirm",
-          fieldType: "password",
-          value: password2,
-          onChange: setPassword2,
-        },
-      ]}
+        restricted={true}
+        fields={[
+          {
+            id: "signup-username",
+            label:"username",
+            fieldType:"text",
+            value: username,
+            onChange: setUsername,
+          },
+          {
+            id: "signup-password-1",
+            label: "password",
+            fieldType: "password",
+            value: password1,
+            onChange: setPassword1,
+          },
+          {
+            id: "signup-password-2",
+            label: "confirm",
+            fieldType: "password",
+            value: password2,
+            onChange: setPassword2,
+          },
+        ]}
         onSubmit={handleSubmit}
-        onBack={() => button()}
+        onBack={onBack}
         onBackText="Already Signed Up?"
         loading={loading}
        />
