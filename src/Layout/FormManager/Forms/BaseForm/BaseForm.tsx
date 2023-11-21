@@ -1,25 +1,30 @@
 import { Button } from "../../../../components/Button";
 import { InputFieldProps, RestrictedInputField } from "../../../../components/RestrictedInputField";
+import { InputField } from "../../../../components/InputField";
 import styles from "./BaseForm.module.scss";
 
 interface BaseFormProps {
+  restricted: boolean;
   fields: InputFieldProps[];
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  onSubmit: (e?: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  onSubmitText?: string;
   onBack?: () => void;
   onBackText?: string;
-  loading: boolean;
+  loading?: boolean;
 }
 
-export const BaseForm = ({ onSubmit, fields, onBack, onBackText, loading }: BaseFormProps) => {
+export const BaseForm = ({ fields, restricted, onSubmit, onSubmitText = "Submit", onBack, onBackText, loading = false }: BaseFormProps) => {
+  const Input = restricted ? InputField : RestrictedInputField;
+
   return (
     <form onSubmit={onSubmit} className={styles.form}>
-      {fields.map((input, i) => 
-        <RestrictedInputField key={i} {...input} />
+      {fields.map((field, i) => 
+        <Input key={i} {...field} />
       )}
       <div>
-        <Button onClick={() => onBack?.()} direction="left">{onBackText}</Button>
+        {onBack && <Button onClick={() => onBack?.()} direction="left">{onBackText}</Button>}
         <Button type="submit" disabled={loading}>
-          Submit
+          {onSubmitText} 
         </Button>
       </div>
     </form>

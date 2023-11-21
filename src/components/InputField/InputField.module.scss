@@ -2,7 +2,7 @@
 
 .inputField {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   column-gap: t.$spacing-3;
   margin-bottom: t.$spacing-2;
   * {
@@ -11,7 +11,6 @@
   }
   label {
     text-transform: uppercase;
-    width: 115px;
     text-align: right;
   }
   input {

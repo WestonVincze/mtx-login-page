@@ -4,10 +4,10 @@ import { useUsers } from "../../../../services/hooks/users";
 import { BaseForm } from "../BaseForm";
 
 interface LoginFormProps {
-  button?: () => void;
+  onBack?: () => void;
 }
 
-export const LoginForm = ({ button } : LoginFormProps) => {
+export const LoginForm = ({ onBack } : LoginFormProps) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,27 +35,29 @@ export const LoginForm = ({ button } : LoginFormProps) => {
   return (
     <>
       <h2>LOG IN</h2>
-      <BaseForm fields={[
-        {
-          id:"login-username",
-          label:"username",
-          fieldType:"text",
-          value: username,
-          onChange: setUsername,
-          disabled: loading,
-        },
-        {
-          id:"login-password",
-          label:"password",
-          fieldType:"password",
-          value:password,
-          onChange:setPassword,
-          disabled:loading,
-        },
-      ]}
+      <BaseForm
+        restricted={true}
+        fields={[
+          {
+            id: "login-username",
+            label: "username",
+            fieldType: "text",
+            value: username,
+            onChange: setUsername,
+            disabled: loading,
+          },
+          {
+            id: "login-password",
+            label: "password",
+            fieldType: "password",
+            value: password,
+            onChange: setPassword,
+            disabled: loading,
+          },
+        ]}
         onSubmit={handleSubmit}
         loading={loading}
-        onBack={button}
+        onBack={onBack}
         onBackText="Need an account?"
       />
     </>
