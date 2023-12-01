@@ -35,6 +35,7 @@ describe("Header", () => {
     });
   });
 
+  /** settings replaced with reset data
   it("can open the settings modal", async() => {
     const { getByTestId } = render(
       <Provider store={store}>
@@ -49,4 +50,5 @@ describe("Header", () => {
       expect(getByTestId("settings-modal")).toBeInTheDocument();
     });
   });
+  **/
 });

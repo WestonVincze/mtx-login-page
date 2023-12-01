@@ -24,10 +24,10 @@ export const useCompany = () => {
   );
 
   // if company is already registered then we should load its data to redux
-  const handleRegisterNewCompany = async (name: string) => {
+  const handleRegisterNewCompany = async(name: string) => {
     try {
-      // why does this always get hit
-      if ((await getCompany(name)) !== null) {
+      const company = await getCompany(name);
+      if (company) {
         dispatch(setCompanyName(name));
         dispatch(registerCompany());
         const characters = await getUnlockedCharacters(companyName);
@@ -54,7 +54,7 @@ export const useCompany = () => {
 
   // const handleChangeCompany = () => {};
 
-  const handleUpdateCompanyName = async (newCompanyName: string) => {
+  const handleUpdateCompanyName = async(newCompanyName: string) => {
     try {
       await updateCompanyName(companyName, newCompanyName);
       dispatch(setCompanyName(newCompanyName));
@@ -72,20 +72,3 @@ export const useCompany = () => {
     updateCompanyName: handleUpdateCompanyName,
   };
 };
-
-/*
-  useEffect(() => {
-    setLoading(true);
-    const fetchCompany = async () => {
-      try {
-        const company = await getCompany(companyName);
-        setCompany(company);
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    };
-    fetchCompany();
-  }, [companyName]);
-  */

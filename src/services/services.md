@@ -1,6 +1,6 @@
 # DB Structure
 
-Object called `CompanyData` stored in localStorage
+Root object `CompanyData` stored in local storage
 
 ```
 companyData: {
@@ -41,4 +41,4 @@ The `slices` directory is a collection of redux actions/reducers that are built 
 
 ## Hooks
 
-The `hooks` directory contains hooks that act as a bridge between corresponding api's and slices. Each of these managing hooks is responsible for serving abstracted functions to the application that manage redux state in tandem with the localStorage data. Each hook also contains an `error` variable in state which handles any errors that are thrown from api's or alices.
+The `hooks` directory contains hooks that act as a bridge between corresponding api's and slices. Each of these managing hooks is responsible for serving abstracted functions to the application that manage redux state in tandem with the localStorage data. Each hook also contains an `error` variable in state which handles any errors that are thrown from api's or slices.
