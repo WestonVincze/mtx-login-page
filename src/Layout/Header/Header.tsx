@@ -13,6 +13,8 @@ export const Header = () => {
   };
 
   const openSettings = () => {
+    // reset user data
+    
     openModal(<Settings closeModal={closeModal} />);
   };
 
@@ -22,7 +24,7 @@ export const Header = () => {
       <div className={styles.header}>
         <section>
           <Button onClick={openSettings} data-testid="settings-btn" direction={"left"}>
-            SETTINGS
+            RESET DATA
           </Button>
           <h2>MTX</h2>
         </section>

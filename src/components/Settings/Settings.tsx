@@ -29,8 +29,6 @@ export const Settings: React.FC<SettingsProps> = ({ closeModal }) => {
     closeModal();
   };
 
-  // TODO: Figure out how to close modal on click...
-
   return (
     <div data-testid="settings-modal">
       <Button onClick={() => handleRenameCompany()}>Rename Company</Button>
