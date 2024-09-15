@@ -22,6 +22,7 @@ const CompanySlice = createSlice({
     },
     unRegisterCompany(state: CompanyState) {
       state.isRegistered = false;
+      state.companyName = "";
     },
   },
 });

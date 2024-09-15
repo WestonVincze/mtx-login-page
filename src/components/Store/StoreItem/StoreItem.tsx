@@ -29,11 +29,8 @@ const PriceDisplay = ({ currencyType, price }: PriceDisplayProps) => {
 
 export const StoreItem = ({
   name,
-  imageUrl,
   type,
   price,
-  discount,
-  quantity,
   isUnlocked,
   onPurchase,
 }: StoreItemProps) => {
@@ -57,14 +54,13 @@ export const StoreItem = ({
       ) : (
         <div />
       )}
-      <div className={styles.item}></div>
       {isUnlocked ? (
         <p>Unlocked!</p>
       ) : (
-        <>
+        <div className={styles.purchase}>
           <PriceDisplay currencyType={currencyType} price={price} />
           <Button onClick={() => onPurchase()}>Buy Now</Button>
-        </>
+        </div>
       )}
     </div>
   );
