@@ -16,7 +16,6 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "object-curly-newline": "off",
-    "space-before-function-paren": ["error", "never"],
     "react/jsx-closing-tag-location": "off",
     "react/jsx-no-bind": [
       2,
