@@ -1,7 +1,7 @@
 @use "../../../styles/theme" as t;
 
 .storeItem {
-  min-width: 130px;
+  min-width: 150px;
   text-align: center;
   outline: 1px solid t.$dark;
   background: t.$background;
@@ -19,4 +19,8 @@
 
 .unlocked {
   color: t.$primary;
+}
+
+.purchase p {
+  margin-bottom: 10px;
 }

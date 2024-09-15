@@ -14,7 +14,7 @@ interface BaseFormProps {
 }
 
 export const BaseForm = ({ fields, restricted, onSubmit, onSubmitText = "Submit", onBack, onBackText, loading = false }: BaseFormProps) => {
-  const Input = restricted ? InputField : RestrictedInputField;
+  const Input = restricted ? RestrictedInputField : InputField;
 
   return (
     <form onSubmit={onSubmit} className={styles.form}>

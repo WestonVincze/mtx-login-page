@@ -5,11 +5,8 @@ export const useModal = () => {
   const [content, setContent] = useState<React.ReactNode>(null);
 
   const openModal = (newContent: React.ReactNode) => {
-    console.log("opening modal...");
-    console.log(newContent);
     setIsOpen(true);
     setContent(newContent);
-    console.log(content);
   };
 
   const closeModal = () => {

@@ -14,8 +14,8 @@ $spacing-2: 10px;
 $spacing-3: 15px;
 
 /* Clipping */
-$left-clip: polygon(100% 100%, 100% 0%, 0% 0%, 20px 100%);
-$right-clip: polygon(calc(100% - 20px) 100%, 100% 0%, 0% 0%, 0% 100%);
+$left-clip: polygon(100% 100%, 100% 0%, 0% 0%, 15px 100%);
+$right-clip: polygon(calc(100% - 15px) 100%, 100% 0%, 0% 0%, 0% 100%);
 $clip-padding: 2rem;
 
 $input: $primary;
